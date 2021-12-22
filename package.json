@@ -4,7 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon src/server.js"
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "build": "sucrase ./src -d ./dist --transforms imports",
+    "commit": "git-cz",
+    "pretest": "NODE_ENV=test sequelize db:migrate",
+    "test": "set NODE_ENV=test jest",
+    "posttest": "NODE_ENV=test sequelize db:migrate:undo:all"
   },
   "devDependencies": {
     "eslint": "^7.22.0",
