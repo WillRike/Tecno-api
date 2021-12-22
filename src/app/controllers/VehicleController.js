@@ -28,22 +28,21 @@ class VehicleController {
       return res.status(400).json({error: 'Este veiculo já está cadastrado!'});
     }
 
-    
-
   const vehicle =  await Vehicle.create(req.body);    
 
-  return res.json({
+  return res.json(
     vehicle,
-  });
+  );
   }
 
   async index(req, res){
     const vehicles = await Vehicle.findAll({
+      attributes: ['id', 'vehicle_name'],
       include: [
         {
           model: Automaker,
           as: 'automaker',
-          attributes: ['id', 'automaker_name'],
+          attributes: ['id','automaker_name'],
         },
       ]
     });

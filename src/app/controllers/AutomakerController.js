@@ -21,9 +21,7 @@ class AutomakerController{
 
   const automaker =  await Automaker.create(req.body);    
 
-  return res.json({
-    automaker,
-  });
+  return res.json(automaker);
   }
 
   async index(req, res){
