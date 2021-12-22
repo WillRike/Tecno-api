@@ -1,11 +1,13 @@
+import './bootstrap';
+
 import express from 'express';
 import cors from 'cors';
-//import path from 'path';
+// import path from 'path';
 import Routes from './routes';
 
 import './database';
 
-//const cors = require('cors');
+// const cors = require('cors');
 
 class App {
   constructor() {
@@ -18,7 +20,6 @@ class App {
     this.server.use(cors());
 
     this.server.use(express.json());
-
   }
 
   routes() {
